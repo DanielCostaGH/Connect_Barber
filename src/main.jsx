@@ -9,12 +9,12 @@ import {
   RouterProvider } from "react-router-dom";
 //import de paginas
 import Home from "./routes/Home";
-import About from './routes/About';
 import Contact from './routes/Contact'
 import LoginCliente from './routes/LoginCliente';
 import LoginProfissional from './routes/LoginProfissional';
 import Account from './routes/Account';
 import Schedules from './routes/Schedules';
+
 
 
 
@@ -27,11 +27,6 @@ import Schedules from './routes/Schedules';
         {
           path: "/",
           element: <Home/>, 
-        },
-
-        {
-          path: "/About",
-          element: <About/>, 
         },
 
         {

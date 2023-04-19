@@ -16,10 +16,10 @@ app.get('/', (req, res) => {
     db.query(SQL, (err, result)=> {
         if (err) {
             console.log(err);
-            return res.status(500).send(err);
+            return res.send(err);
         }
         console.log(result);
-        return res.status(200).send("Data added successfully");
+        return res.send("Data added successfully");
     })
 });
 

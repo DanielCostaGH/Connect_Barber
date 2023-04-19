@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
             return res.send(err);
         }
         console.log(result);
-        return res.send("Data added successfully");
+        return res.send("Dados adicionados com sucesso");
     })
 });
 

@@ -11,7 +11,7 @@ const db = mysql.createPool({
 });
 
 app.get('/', (req, res) => {
-    let SQL = "INSERT INTO client_tb (NAME, EMAIL, TELL, PASSWORD) VALUES ('Daniel', 'dfscs.costa@gmail.com', '999999', '12345678') "
+    let SQL = "INSERT INTO client_tb (NAME, EMAIL, TELL, PASSWORD) VALUES ('Heitor', 'dfscs.costa@gmail.com', '999999', '12345678') "
 
     db.query(SQL, (err, result)=> {
         if (err) {

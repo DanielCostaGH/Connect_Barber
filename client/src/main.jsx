@@ -9,8 +9,8 @@ import {
   RouterProvider } from "react-router-dom";
 //import de paginas
 import Home from "./routes/Home";
-import LoginCliente from './routes/LoginCliente';
-import LoginProfissional from './routes/LoginProfissional';
+import LoginPage from './routes/LoginPage';
+import CriarConta from './routes/CriarConta';
 import Account from './routes/Account';
 import Schedules from './routes/Schedules';
 
@@ -37,13 +37,13 @@ import Schedules from './routes/Schedules';
         },
 
         {
-          path: "/LoginProfissional",
-          element: <LoginProfissional/>, 
+          path: "/CriarConta",
+          element: <CriarConta/>, 
         },
 
         {
-          path: "/LoginCliente",
-          element: <LoginCliente/>, 
+          path: "/LoginPage",
+          element: <LoginPage/>, 
         }
       ]
     },

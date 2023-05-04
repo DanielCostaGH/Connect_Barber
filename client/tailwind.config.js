@@ -6,8 +6,21 @@ export default {
   ],
   theme: {
     extend: {
+  
+      height:{
+        inp: '31.74px',
+        btns: '37px',
+        menu: '23.74px',
+        logo: '102px',
+      },
+      width:{
+        inp: '296px',
+        btns: '147px',
+        menu: '28px',
+        logo: '102px',
+      },
       colors: {
-        zuingler: '#000000',
+        
       },
     },
   },

@@ -3,11 +3,9 @@
 <img src="https://github.com/DanielCostaGH/Connect_Barber/blob/master/client/public/images/logo_branca.svg"
 </p >
 	<br/>
-	<br/>
-	PEste projeto é destinado para uso universitário.
+	Este projeto é destinado para uso universitário.
 	
 # Sobre o Projeto
-
 
 <h4 align="justify">
 	O objetivo é realizar uma aplicação web, voltada ao atendimento de barbearias, contando com cadastros de serviços para o proprietário e agendamentos por parte do cliente, podendo marcar um horário, alterar e excluir os agendamentos.

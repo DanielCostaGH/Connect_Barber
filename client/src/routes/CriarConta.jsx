@@ -1,11 +1,11 @@
 import React from 'react'
-import Navbar from '../components/Navbar/Navbar'
+import NavLogin from "../components/Navbar/NavLogin";
 import Cadastro from '../components/Cadastro/Cadastro';
 
 const CriarConta = () => {
   return (
     <div className='bg-gradient-to-br from-gray-600 to-black h-screen'>
-      <Navbar/>
+      <NavLogin/>
       {/* Formulário de CADASTRO */}
        <Cadastro/>
     </div>

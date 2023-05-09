@@ -5,6 +5,9 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      'oswaldbold': ['Oswald-Bold', 'sans-serif'],
+    },
     extend: {
   
       height:{

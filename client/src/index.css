@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'oswaldbold';
-    src: url('../public/fonts/oswald-font-family/Oswald-Bold.otf');
+    font-family: 'oswald';
+    src: url('../public/fonts/Oswald-regular.otf');
+}
+
+.oswal{
+    font-family: 'oswald';
 }

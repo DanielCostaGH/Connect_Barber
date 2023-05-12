@@ -4,10 +4,9 @@ import NavLogin from "../components/Navbar/NavLogin";
 
 const LoginPage = () => {
   return (
-    <div className="bg-gradient-to-br from-gray-600 to-black h-screen">
+    <div className="bg-gradient-to-l from-gray-800 to-gray-900 h-screen">
       <NavLogin/>
       <div className="">
-        {/* Formulário de LOGIN */}
       <Login/>
       </div>
     </div>

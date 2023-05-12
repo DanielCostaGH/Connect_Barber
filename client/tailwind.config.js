@@ -6,7 +6,7 @@ export default {
   ],
   theme: {
     fontFamily: {
-      'oswaldbold': ['Oswald-Bold', 'sans-serif'],
+      'oswald': ['oswaldR', 'sans-serif'],
     },
     extend: {
   

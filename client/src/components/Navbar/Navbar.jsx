@@ -6,37 +6,51 @@ import menu from "../../../public/images/menu.svg";
 
 const Navbar = () => {
   return (
-    <div className="lg:flex">
-      <div className="lg:w-4/12 flex items-center justify-between">
-        <a href="/"> <img className="h-logo w-logo" src={logo_branca} alt="Logo" /></a>
-         
-        
-
-        <img
-          className="h-menu w-menu mx-10  sm:block md:block lg:hidden"
-          src={menu}
-          alt="Menu"
-        />
-      </div>
-
-      <nav className="navbar lg:inline-flex text-white relative w-6/12 pt-6  hidden ">
-        <Link className="nav-items" to="/">
+    <nav className="flex items-center justify-center bg-gradient-to-l from-gray-800 to-gray-900 flex-wrap maindiv">
+      <div className="lg:flex items-center justify-center hidden md:flex text-xl">
+        <a
+          href="/"
+          className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
+        >
           Home
-        </Link>
-        <a href="#about" className="nav-items">
+        </a>
+        <a
+          href="#about"
+          className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
+        >
           About us
         </a>
-        <a href="#contact" className="nav-items">
+        <a
+          href="/"
+          className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
+        >
           Support
         </a>
-        <Link className="nav-items" to="/">
+        <a
+          href="/"
+          className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
+        >
           Contact Professional
-        </Link>
-        <Link className="nav-items" to="/LoginPage">
-          Login / Sign-Up
-        </Link>
-      </nav>
-    </div>
+        </a>
+        <a
+          href="/LoginPage"
+          className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500"
+        >
+          Login
+        </a>
+      </div>
+
+      {/* icone do menu */}
+      <div className="sm:hidden ">
+        <button className="flex items-center text-white">
+          <img
+            className="h-menu w-menu mx-10  sm:block md:block lg:hidden"
+            src={menu}
+            alt="Menu"
+          />
+        </button>
+      </div>
+    </nav>
   );
 };
 

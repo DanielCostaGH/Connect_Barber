@@ -12,7 +12,6 @@
 </h4>
 
 
-
 # Índice/Sumário
 
 * [Sobre](#sobre-o-projeto)
@@ -22,6 +21,13 @@
 * [Autores](#autores)
 * [Licença](#licença)
 * [Agradecimentos](#agradecimentos)
+
+
+# Instruções de como usar: 
+<h4 align="justify">
+	Abrir pasta cliente > baixar dependências usando (npm install) > iniciar o programa usando (npm run dev). <br/>
+	Abrir pasta server > baixar dependências usando (npm install) > iniciar o programa usando (npm run dev).
+</h4>
 
 
 # Requisitos Funcionais - Usuarios (clientes)

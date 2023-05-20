@@ -3,9 +3,11 @@ import NavInsider from '../components/Navbar/NavInsider'
 
 const Schedules = () => {
   return (
-    <div className='bg-gradient-to-br from-gray-600 to-black h-screen'>
+    <div className='h-screen'>
       <NavInsider/>
       SCHEDULES
+
+      <input type="date" />
 
       
     </div>

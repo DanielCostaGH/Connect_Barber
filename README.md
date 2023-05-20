@@ -12,16 +12,26 @@
 </h4>
 
 
-
 # Índice/Sumário
 
 * [Sobre](#sobre-o-projeto)
+* [# Instruções:](#instruções)
 * [Requisitos Funcionais](#requisitos-funcionais)
 * [Tecnologias Usadas](#tecnologias-usadas)
 * [Contribuição](#contribuição)
 * [Autores](#autores)
 * [Licença](#licença)
 * [Agradecimentos](#agradecimentos)
+
+
+# Instruções: 
+<h4 align="justify">
+	Instalações necessárias: <br/>
+	Node.js | Git | Visual Studio Code | Mysql |  <br/>
+	Criar repositório local fazer o pull da aplicação <br/>
+	Abrir pasta cliente > baixar dependências usando (npm install) > iniciar o programa usando (npm run dev). <br/>
+	Abrir pasta server > baixar dependências usando (npm install) > iniciar o programa usando (npm run dev). <br/>
+</h4>
 
 
 # Requisitos Funcionais - Usuarios (clientes)

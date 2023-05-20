@@ -1,5 +1,5 @@
 import React from 'react'
-import NavInsider from '../components/Navbar/NavInsider'
+import NavInsider from "../components/NavInsider"
 
 const Schedules = () => {
   return (

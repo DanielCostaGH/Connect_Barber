@@ -1,6 +1,6 @@
 import React from 'react'
-import NavLogin from "../components/Navbar/NavLogin";
-import Cadastro from '../components/Cadastro/Cadastro';
+import NavLogin from "../components/NavLogin";
+import Cadastro from '../components/Cadastro';
 
 const CriarConta = () => {
   return (

@@ -1,16 +1,15 @@
 import React from "react";
-import About from "../components/About/About";
-import Navbar from "../components/Navbar/Navbar";
-import MobHome from "../components/Homes/MobHome";
+import Navbar from "../components/Navbar"
+import MobHome from "../components/MobHome"
+import About from "../components/About"
 import home_img_1 from "/images/home_img_1.jpg";
-import aboutimg from "../../public/images/aboutimg.jpg";
-import Footer from "../components/Footer/Footer";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
     <div className="flex-col items-center flex-grow">
       <div className="">
-        <Navbar />
+        <Navbar/>
       </div>
 
       <div className=" w-full min-h-[80vh]">

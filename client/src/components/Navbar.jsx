@@ -1,18 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Navbar.css";
-import logo_branca from "/images/logo_branca.svg";
-import menu from "../../../public/images/menu.svg";
+import menu from "../assets/images/menu.svg";
 
 const Navbar = () => {
   return (
     <nav className="flex items-center justify-center bg-gradient-to-l from-gray-800 to-gray-900 flex-wrap maindiv">
-      <div className="w-3/6">
-        <a href="/">
-          <img className="h-logo w-logo" src={logo_branca} alt="Logo" />
-        </a>
-      </div>
-      <div className="lg:flex items-center w-3/6 justify-between hidden md:flex text-xl">
+      <div className="lg:flex items-center justify-center hidden md:flex text-xl">
         <a
           href="/"
           className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
@@ -33,11 +26,16 @@ const Navbar = () => {
         </a>
         <a
           href="/"
-          className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10 pr-20"
+          className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
         >
           Contact Professional
         </a>
-        
+        <a
+          href="/LoginPage"
+          className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500"
+        >
+          Login
+        </a>
       </div>
 
       {/* icone do menu */}

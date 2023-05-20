@@ -1,12 +1,11 @@
 import React from "react";
 
-import aboutimg from "/images/aboutimg.jpg";
-import zuck from "/images/barber1.png";
-import bill from "/images/barber2.png";
-import elon from "/images/barber3.png";
-import putin from "/images/barber4.png";
-import abouticon from "/images/abouticon.svg";
-import Footer from "../Footer/Footer";
+import zuck from "../assets/images/barber1.png";
+import bill from "../assets/images/barber2.png";
+import elon from "../assets/images/barber3.png";
+import putin from "../assets/images/barber4.png";
+import abouticon from "../assets/images/abouticon.svg";
+import Footer from "./Footer";
 
 const About = () => {
   return (

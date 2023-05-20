@@ -9,7 +9,9 @@ export default {
       'oswald': ['oswaldR', 'sans-serif'],
     },
     extend: {
-  
+      colors: {
+        'red': '#9D3B3B',
+      },
       height:{
         inp: '31.74px',
         btns: '37px',

@@ -1,43 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Navbar.css";
-import logo_branca from "/images/logo_branca.svg";
-import menu from "../../../public/images/menu.svg";
+import menu from "../assets/images/menu.svg";
 
-const Navbar = () => {
+
+const NavInsider = () => {
+
   return (
     <nav className="flex items-center justify-center bg-gradient-to-l from-gray-800 to-gray-900 flex-wrap maindiv">
       <div className="lg:flex items-center justify-center hidden md:flex text-xl">
         <a
-          href="/"
-          className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
-        >
-          Home
-        </a>
-        <a
-          href="#about"
-          className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
-        >
-          About us
-        </a>
-        <a
-          href="/"
+          href="#"
           className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
         >
           Support
         </a>
         <a
-          href="/"
+          href="/Schedules"
           className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
         >
-          Contact Professional
+          Agendamentos
         </a>
         <a
-          href="/LoginPage"
+          href="/Account"
           className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500"
         >
-          Login
+          Minha conta
         </a>
+      
       </div>
 
       {/* icone do menu */}
@@ -54,4 +43,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavInsider;

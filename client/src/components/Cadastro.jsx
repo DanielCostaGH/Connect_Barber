@@ -69,7 +69,7 @@ const Cadastro = () => {
           <div className="m-5 mx-auto">
             <Field
               className="placeholder-gray-900 placeholder-opacity-100 rounded-md h-inp w-auto sm:w-inp px-5"
-              type="text"
+              type="tel"
               id="tell"
               name="tell"
               placeholder="Telefone   |"

@@ -1,6 +1,6 @@
 # Connect Barber
 <p align="center" > 
-<img src="https://github.com/DanielCostaGH/Connect_Barber/blob/master/client/public/images/logo_branca.svg"
+<img src="https://github.com/DanielCostaGH/Connect_Barber/blob/master/client/src/assets/images/logo_branca.svg"
 </p >
 	<br/>
 	Este projeto é destinado para uso universitário.

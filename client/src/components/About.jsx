@@ -33,7 +33,7 @@ const About = () => {
         </p>
       </div>
 
-      <h1 className="text-2xl w-full text-white bg-gradient-to-l from-gray-800 to-gray-900">
+      <h1 className="text-2xl w-full text-white text-center p-2 bg-gradient-to-l from-gray-800 to-gray-900">
         Barbers:
       </h1>
       <div className="flex justify-center">

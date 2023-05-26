@@ -1,19 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import menu from "../assets/images/menu.svg";
-
+import ModalSupport from "./modals/ModalSupport";
 
 const NavInsider = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // Função para abrir a modal
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  // Função para fechar a modal
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+
 
   return (
+    <>
     <nav className="flex items-center justify-center bg-gradient-to-l from-gray-800 to-gray-900 flex-wrap maindiv">
       <div className="lg:flex items-center justify-center hidden md:flex text-xl">
-        <a
-          href="#"
-          className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
-        >
-          Support
-        </a>
+      <a
+            className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10 cursor-pointer"
+            onClick={openModal} // Adicione o evento onClick para abrir a modal
+          >
+            Support
+          </a>
         <a
           href="/Schedules"
           className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
@@ -40,6 +54,9 @@ const NavInsider = () => {
         </button>
       </div>
     </nav>
+    <ModalSupport isOpen={modalOpen} onClose={closeModal} />
+    </>
+    
   );
 };
 

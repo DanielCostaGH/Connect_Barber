@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
 import logo_branca from "../assets/images/logo_branca.svg";
 import menu from "../assets/images/menu.svg";
+import ModalSupport from "./modals/ModalSupport";
+
 
 const Navbar = () => {
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  // Função para abrir a modal
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  // Função para fechar a modal
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   return (
+    <>
     <nav className="flex items-center justify-center bg-gradient-to-l from-gray-800 to-gray-900 flex-wrap maindiv">
       <div className="w-3/6">
         <a href="/">
@@ -19,17 +35,17 @@ const Navbar = () => {
           Home
         </a>
         <a
-          href="#about"
+          href="/#about"
           className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
         >
           About us
         </a>
         <a
-          href="/"
-          className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
-        >
-          Support
-        </a>
+            className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10 cursor-pointer"
+            onClick={openModal} // Adicione o evento onClick para abrir a modal
+          >
+            Support
+          </a>
         <a
           href="/"
           className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10 pr-20"
@@ -50,6 +66,8 @@ const Navbar = () => {
         </button>
       </div>
     </nav>
+    <ModalSupport isOpen={modalOpen} onClose={closeModal} />
+    </>
   );
 };
 

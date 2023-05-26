@@ -50,10 +50,10 @@ const Account = () => {
       <NavInsider />
 
       {/* Titulo */}
-      <h1 className="text-white text-3xl lg:pt-24 pt-14">Seja Bem-vindo!</h1>
+      <h1 className="text-white text-3xl lg:pt-24 pt-14 text-center">Seja Bem-vindo!</h1>
 
       {/* Div main */}
-      <div className="flex flex-col items-center md:flex-row flex-grow">
+      <div className="flex flex-col items-center md:flex-row flex-grow text-center">
 
         {/* Div Alterar */}
         <div

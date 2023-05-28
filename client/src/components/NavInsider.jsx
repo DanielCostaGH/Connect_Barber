@@ -16,47 +16,51 @@ const NavInsider = () => {
     setModalOpen(false);
   };
 
-
-
   return (
     <>
-    <nav className="flex items-center justify-center bg-gradient-to-l from-gray-800 to-gray-900 flex-wrap maindiv">
-      <div className="lg:flex items-center justify-center hidden md:flex text-xl">
-      <a
+      <nav className="flex items-center justify-center bg-gradient-to-l from-gray-800 to-gray-900 flex-wrap maindiv">
+        <div className="lg:flex items-center justify-center hidden md:flex text-xl">
+          <a
             className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10 cursor-pointer"
             onClick={openModal} // Adicione o evento onClick para abrir a modal
           >
             Support
           </a>
-        <a
-          href="/Schedules"
-          className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
-        >
-          Agendamentos
-        </a>
-        <a
-          href="/Account"
-          className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500"
-        >
-          Minha conta
-        </a>
-      
-      </div>
+          <a
+            href="https://api.whatsapp.com/send?phone=5531980160125&text=Ol%C3%A1,%20tenho%20uma%20d%C3%BAvida."
+            className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Contact Professional
+          </a>
+          <a
+            href="/Schedules"
+            className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
+          >
+            Agendamentos
+          </a>
+          <a
+            href="/Account"
+            className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500"
+          >
+            Minha conta
+          </a>
+        </div>
 
-      {/* icone do menu */}
-      <div className="sm:hidden ">
-        <button className="flex items-center text-white">
-          <img
-            className="h-menu w-menu mx-10  sm:block md:block lg:hidden"
-            src={menu}
-            alt="Menu"
-          />
-        </button>
-      </div>
-    </nav>
-    <ModalSupport isOpen={modalOpen} onClose={closeModal} />
+        {/* icone do menu */}
+        <div className="sm:hidden ">
+          <button className="flex items-center text-white">
+            <img
+              className="h-menu w-menu mx-10  sm:block md:block lg:hidden"
+              src={menu}
+              alt="Menu"
+            />
+          </button>
+        </div>
+      </nav>
+      <ModalSupport isOpen={modalOpen} onClose={closeModal} />
     </>
-    
   );
 };
 

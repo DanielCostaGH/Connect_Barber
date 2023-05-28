@@ -5,9 +5,10 @@ const Schedules = () => {
   return (
     <div className='h-screen'>
       <NavInsider/>
-      SCHEDULES
+      <h1>MEUS AGENDAMENTOS</h1>
 
       <input type="date" />
+    
 
       
     </div>

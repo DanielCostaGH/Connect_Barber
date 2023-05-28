@@ -8,6 +8,7 @@ const jwt = require('jsonwebtoken');
 const secretKey = 'chave-secreta';
 
 
+
 const db = mysql.createPool({
   host: "localhost",
   port: 3306,
@@ -119,7 +120,7 @@ app.post("/LoginPage", (req, res) => {
       if (result.length > 0) {
         bcrypt.compare(password, result[0].password, (erro, response) => {
           if (response) {
-            const user = { id: result[0].id, email: result[0].email };
+            const user = { id: result[0].ID_USER, email: result[0].EMAIL };
             const token = generateToken(user);
             res.send({ token: token });
           } else {
@@ -132,6 +133,43 @@ app.post("/LoginPage", (req, res) => {
     }
   );
 });
+
+function verifyToken(req, res, next) {
+  const token = req.headers.authorization;
+
+  console.log("Received token:", token);
+
+  if (!token) {
+    return res.status(401).send("Token não fornecido.");
+  }
+
+  jwt.verify(token, secretKey, (err, decoded) => {
+    if (err) {
+      console.log("Token verification error:", err);
+      return res.status(401).send("Token inválido.");
+    }
+
+    req.user = decoded;
+    next();
+  });
+}
+
+app.delete("/api/ModalDelete/:id", verifyToken, (req, res) => {
+  const userId = req.params.id;
+
+  console.log("Deleting user with ID:", userId);
+
+  db.query("DELETE FROM client_tb WHERE ID_USER = ?", [userId], (err, result) => {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send({ msg: "Usuário excluído com sucesso" });
+    }
+  });
+});
+
+
+
 
 app.listen(3001, () => {
   console.log("rodando servidor");

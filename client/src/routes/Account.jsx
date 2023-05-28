@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import NavInsider from "../components/NavInsider";
 import { useNavigate } from "react-router-dom";
 import alterar_icon from "../assets/images/alterar_icon.svg";
@@ -7,6 +7,8 @@ import Footer from "../components/Footer";
 import logout_icon from "../assets/images/logout_icon.svg";
 import ModalAlter from "../components/modals/ModalAlter";
 import ModalDelete from "../components/modals/ModalDelete";
+import jwt_decode from "jwt-decode";
+
 
 const Account = () => {
   // Código para apagar o token do localStorage e usar a função navigate para redirecionar à pagina inicial.
@@ -36,11 +38,18 @@ const Account = () => {
   const closeDeleteModal = () => {
     setIsDeleteModalOpen(false);
   };
-  // const handleDeleteAccount = () => {
-  //   // Lógica para deletar a conta
-  // };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const decodedToken = jwt_decode(token); // Importe o pacote 'jwt-decode'
   
-  // ========================================================================
+    console.log("ID do usuário logado:", decodedToken.id);
+  }, []);
+  
+  
+  
+
+
 
   return (
     // Div "body"
@@ -106,6 +115,8 @@ const Account = () => {
           SAIR
           <img className="w-10 h-10" src={logout_icon} alt="Sair" />
         </button>
+      </div>
+      <div>
       </div>
 
       <Footer className="mt-auto" />

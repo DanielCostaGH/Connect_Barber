@@ -8,15 +8,21 @@ const Login = () => {
     Axios.post("http://localhost:3001/LoginPage", {
       email: values.email,
       password: values.password,
-    }).then((response) => {
-      const { token } = response.data;
-      if (token) {
-        localStorage.setItem("token", token);
-        window.location.href = "/Schedules";
-      } else {
-        alert(response.data);
-      }
-    });
+    })
+      .then((response) => {
+        const { token } = response.data;
+        if (token) {
+          localStorage.setItem("token", token);
+          // Define o token padrão para todas as solicitações
+          Axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+          window.location.href = "/Account";
+        } else {
+          alert(response.data);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   const validationLogin = yup.object().shape({
@@ -31,7 +37,7 @@ const Login = () => {
           <h1 className="text-white font-bold text-3xl mx-auto">LOGIN</h1>
 
           <Formik
-            initialValues={{}}
+            initialValues={{ email: "", password: ""}}
             onSubmit={handleClickLogin}
             validationSchema={validationLogin}
           >

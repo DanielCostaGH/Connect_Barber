@@ -40,8 +40,10 @@ const Navbar = () => {
             Support
           </a>
         <a
-          href="/"
+          href="https://api.whatsapp.com/send?phone=5531980160125&text=Ol%C3%A1,%20tenho%20uma%20d%C3%BAvida."
           className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"
+          target="_blank" 
+          rel="noopener noreferrer"
         >
           Contact Professional
         </a>

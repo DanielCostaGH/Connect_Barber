@@ -15,7 +15,7 @@ const Login = () => {
           localStorage.setItem("token", token);
           // Define o token padrão para todas as solicitações
           Axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-          window.location.href = "/Account";
+          window.location.href = "/Schedules";
         } else {
           alert(response.data);
         }

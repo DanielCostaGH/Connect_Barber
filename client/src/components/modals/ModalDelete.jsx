@@ -1,23 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import jwt_decode from "jwt-decode";
 
 const ModalDelete = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
-
-  let token = null;
-  let userId = null;
+  const [userId, setUserId] = useState(null);
 
   useEffect(() => {
-    token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
+    console.log("Token:", token);
     const decodedToken = jwt_decode(token);
-    userId = decodedToken.id;
-    Axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    setUserId(decodedToken.id);
   }, []);
 
   const handleDeleteAccount = () => {
     const token = localStorage.getItem("token");
-    Axios.delete(`http://localhost:3001/api/ModalDelete/${userId}`, {
+    Axios.delete(`http://localhost:3001/ModalDelete/${userId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -28,9 +25,11 @@ const ModalDelete = ({ isOpen, onClose }) => {
       .catch((error) => {
         console.log(error);
       });
-  
+
     onClose();
   };
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">

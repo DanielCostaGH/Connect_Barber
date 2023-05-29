@@ -20,15 +20,23 @@ const db = mysql.createPool({
 app.use(express.json());
 app.use(cors());
 
+// Configuração dessa merda de cabeçalho Access-Control sei la oq pra permitir a origem específica da rota.
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
+  next();
+});
+
 
 // Geração de token após a autenticação.
 function generateToken(user) {
-  const token = jwt.sign(user, secretKey, { expiresIn: '1h' });
+  const token = jwt.sign(user, secretKey, { expiresIn: '2h' });
   return token;
 }
 
 function verifyToken(req, res, next) {
   const token = req.headers.authorization;
+
+  console.log("Received token:", token);
 
   if (!token) {
     return res.status(401).send("Token não fornecido.");
@@ -36,6 +44,7 @@ function verifyToken(req, res, next) {
 
   jwt.verify(token, secretKey, (err, decoded) => {
     if (err) {
+      console.log("Token verification error:", err);
       return res.status(401).send("Token inválido.");
     }
 
@@ -44,12 +53,6 @@ function verifyToken(req, res, next) {
   });
 }
 
-
-// Configuração dessa merda de cabeçalho Access-Control sei la oq pra permitir a origem específica da rota.
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
-  next();
-});
 
 function rotasProtegidas() {
   const router = express.Router();
@@ -134,27 +137,8 @@ app.post("/LoginPage", (req, res) => {
   );
 });
 
-function verifyToken(req, res, next) {
-  const token = req.headers.authorization;
 
-  console.log("Received token:", token);
-
-  if (!token) {
-    return res.status(401).send("Token não fornecido.");
-  }
-
-  jwt.verify(token, secretKey, (err, decoded) => {
-    if (err) {
-      console.log("Token verification error:", err);
-      return res.status(401).send("Token inválido.");
-    }
-
-    req.user = decoded;
-    next();
-  });
-}
-
-app.delete("/api/ModalDelete/:id", verifyToken, (req, res) => {
+app.delete("/ModalDelete/:id", verifyToken, (req, res) => {
   const userId = req.params.id;
 
   console.log("Deleting user with ID:", userId);

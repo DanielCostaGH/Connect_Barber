@@ -53,7 +53,7 @@ const Account = () => {
 
   return (
     // Div "body"
-    <div className="bg-gradient-to-l from-gray-800 to-gray-500 min-h-screen flex flex-col">
+    <div className="bg-gray-600 min-h-screen flex flex-col">
 
       {/* Navbar */}
       <NavInsider />
@@ -109,7 +109,7 @@ const Account = () => {
       <div className="w-full flex justify-center items-center py-5">
         <button
           id="logout"
-          className="p-3 text-white text-xl flex justify-center items-center  bg-[#FF3333] w-32 rounded-lg"
+          className="p-3 text-white text-xl flex justify-center items-center  bg-[#FF3333] w-32 rounded-lg border-2"
           onClick={handleLogout}
         >
           SAIR

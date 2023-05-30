@@ -10,7 +10,7 @@ const TimeSelector = ({ availableTimes, onSelectTime }) => {
       <h2>Selecione o horário:</h2>
       <ul>
         {availableTimes.map((time) => (
-          <li className='cursor-pointer' key={time} onClick={() => handleTimeSelect(time)}>
+          <li key={time} onClick={() => handleTimeSelect(time)}>
             {time}
           </li>
         ))}

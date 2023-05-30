@@ -15,7 +15,7 @@ const DaySelector = ({ availableDays, onSelectDay }) => {
         {availableDays.map((day) => (
           <li
             key={day}
-            className={`cursor-pointer ${selectedDay === day ? 'selected' : ''}`}
+            className={selectedDay === day ? 'selected' : ''}
             onClick={() => handleDaySelect(day)}
           >
             {day}

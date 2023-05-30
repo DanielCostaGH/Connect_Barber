@@ -15,7 +15,7 @@ const ServiceSelector = ({ services, onSelectService }) => {
         {services.map((service) => (
           <li
             key={service.id}
-            className={`py-2 cursor-pointer	 ${selectedService === service ? 'border-t border-b' : 'border-b'}`}
+            className={`py-2 ${selectedService === service ? 'border-t border-b' : 'border-b'}`}
             onClick={() => handleServiceSelect(service)}
           >
             {service.name}

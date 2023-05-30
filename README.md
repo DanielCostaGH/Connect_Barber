@@ -70,7 +70,7 @@ Leia o arquivo [CONTRIBUTING.md](CONTRIBUTING.md) para saber detalhes sobre o no
 
 - [Daniel Francisco](https://github.com/DanielCostaGH)
 - [Heitor Araujo](https://github.com/heitor-araujo)
-- []()
+- [Carlos Roberto](https://github.com/cjribeiro99)
 - []()
 - []()
 - []()

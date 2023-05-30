@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
-const secretKey = 'chave-secreta';
+const secretKey = '123456';
 
 
 
@@ -13,7 +13,7 @@ const db = mysql.createPool({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "12345678",
+  password: "123456",
   database: "connect_db",
 });
 
@@ -33,7 +33,7 @@ function generateToken(user) {
   return token;
 }
 
-function verifyToken(req, res, next) {
+function verifyToken(req, res, next, secretKey) {
   const token = req.headers.authorization;
 
   console.log("Received token:", token);
@@ -137,7 +137,11 @@ app.post("/LoginPage", (req, res) => {
   );
 });
 
+<<<<<<< Updated upstream
 
+=======
+//endpoint para deletar a conta
+>>>>>>> Stashed changes
 app.delete("/ModalDelete/:id", verifyToken, (req, res) => {
   const userId = req.params.id;
 

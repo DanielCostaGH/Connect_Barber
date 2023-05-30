@@ -12,6 +12,7 @@ const Cadastro = () => {
       password: values.password,
     }).then((response) => {
       alert(response.data.msg);
+      window.location.href = "/LoginPage";
     });
   };
 

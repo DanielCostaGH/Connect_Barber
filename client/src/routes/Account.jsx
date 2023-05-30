@@ -41,9 +41,9 @@ const Account = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    const decodedToken = jwt_decode(token); // Importe o pacote 'jwt-decode'
+    // const decodedToken = jwt_decode(token);
   
-    console.log("ID do usuário logado:", decodedToken.id);
+    // console.log("ID do usuário logado:", decodedToken.id);
   }, []);
   
   
@@ -82,7 +82,8 @@ const Account = () => {
         </div>
         <ModalAlter 
         isOpen={isModalOpen} 
-        onClose={closeModal} />
+        onClose={closeModal}
+        />
 
 
         {/* Div Deletar Conta */}
@@ -99,7 +100,6 @@ const Account = () => {
         <ModalDelete
           isOpen={isDeleteModalOpen}
           onClose={closeDeleteModal}
-          // handleDeleteAccount={handleDeleteAccount}
         />
 
 

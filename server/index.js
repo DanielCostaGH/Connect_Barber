@@ -13,7 +13,7 @@ const db = mysql.createPool({
   host: "localhost",
   port: 3306,
   user: "root",
-  password: "123456",
+  password: "12345678",
   database: "connect_db",
 });
 
@@ -137,11 +137,25 @@ app.post("/LoginPage", (req, res) => {
   );
 });
 
-<<<<<<< Updated upstream
+app.post("/ModalAlter/:id", verifyToken, (req, res) => {
+  const { name, tell, password } = req.body;
+  const userId = req.params.id;
 
-=======
-//endpoint para deletar a conta
->>>>>>> Stashed changes
+  db.query(
+    "UPDATE client_tb SET NAME = ?, TELL = ?, PASSWORD = ? WHERE ID_USER = ?",
+    [name, tell, password, userId],
+    (err, result) => {
+      if (err) {
+        console.error("Erro ao atualizar os dados no banco de dados:", err);
+        res.status(500).send("Erro ao atualizar os dados no banco de dados.");
+      } else {
+        console.log("Dados atualizados com sucesso.");
+        res.send("Dados atualizados com sucesso.");
+      }
+    }
+  );
+});
+
 app.delete("/ModalDelete/:id", verifyToken, (req, res) => {
   const userId = req.params.id;
 
@@ -155,6 +169,8 @@ app.delete("/ModalDelete/:id", verifyToken, (req, res) => {
     }
   });
 });
+
+
 
 
 

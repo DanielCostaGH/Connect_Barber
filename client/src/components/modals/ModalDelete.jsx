@@ -7,7 +7,6 @@ const ModalDelete = ({ isOpen, onClose }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    console.log("Token:", token);
     const decodedToken = jwt_decode(token);
     setUserId(decodedToken.id);
   }, []);
@@ -27,6 +26,7 @@ const ModalDelete = ({ isOpen, onClose }) => {
       });
 
     onClose();
+    window.location.href = "/";
   };
 
   if (!isOpen) return null;

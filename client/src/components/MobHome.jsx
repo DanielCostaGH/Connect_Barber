@@ -12,7 +12,7 @@ const MobHome = () => {
   return (
     <div className="flex flex-col items-center bg-cover min-h-[80vh]" style={{backgroundImage: `url(${aboutimg})`}}>
       <div>
-      <img className="h-80 w-80" src={logo_branca} alt="Logo" />
+      <img className="h-80 w-80 mr-5" src={logo_branca} alt="Logo" />
       </div>
 
       <div>

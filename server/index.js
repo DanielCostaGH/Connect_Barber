@@ -141,19 +141,26 @@ app.post("/ModalAlter/:id", verifyToken, (req, res) => {
   const { name, tell, password } = req.body;
   const userId = req.params.id;
 
-  db.query(
-    "UPDATE client_tb SET NAME = ?, TELL = ?, PASSWORD = ? WHERE ID_USER = ?",
-    [name, tell, password, userId],
-    (err, result) => {
-      if (err) {
-        console.error("Erro ao atualizar os dados no banco de dados:", err);
-        res.status(500).send("Erro ao atualizar os dados no banco de dados.");
-      } else {
-        console.log("Dados atualizados com sucesso.");
-        res.send("Dados atualizados com sucesso.");
-      }
+  bcrypt.hash(password, saltRounds, (err, hash) => {
+    if (err) {
+      console.error("Erro ao criptografar a senha:", err);
+      res.status(500).send("Erro ao atualizar a senha.");
+    } else {
+      db.query(
+        "UPDATE client_tb SET NAME = ?, TELL = ?, PASSWORD = ? WHERE ID_USER = ?",
+        [name, tell, hash, userId],
+        (err, result) => {
+          if (err) {
+            console.error("Erro ao atualizar os dados no banco de dados:", err);
+            res.status(500).send("Erro ao atualizar os dados no banco de dados.");
+          } else {
+            console.log("Dados atualizados com sucesso.");
+            res.send("Dados atualizados com sucesso.");
+          }
+        }
+      );
     }
-  );
+  });
 });
 
 app.delete("/ModalDelete/:id", verifyToken, (req, res) => {

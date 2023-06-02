@@ -27,7 +27,7 @@ const Login = () => {
 
   const validationLogin = yup.object().shape({
     email: yup.string().email().required("Campo Obrigatório"),
-    password: yup.string().min(8).required("Senha deve ter 8 caracteres."),
+    password: yup.string().min(1).required("Senha é obrigatória."),
   });
 
   return (
@@ -37,7 +37,7 @@ const Login = () => {
           <h1 className="text-white font-bold text-3xl mx-auto">LOGIN</h1>
 
           <Formik
-            initialValues={{ email: "", password: ""}}
+            initialValues={{ email: "", password: "" }}
             onSubmit={handleClickLogin}
             validationSchema={validationLogin}
           >

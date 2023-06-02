@@ -6,11 +6,11 @@ const TimeSelector = ({ availableTimes, onSelectTime }) => {
   };
 
   return (
-    <div className='text-white'>
-      <h2>Selecione o horário:</h2>
+    <div className=''>
+      <h2 className='mb-5 mt-5 font-bold text-2xl'>Selecione o horário:</h2>
       <ul>
         {availableTimes.map((time) => (
-          <li className='cursor-pointer' key={time} onClick={() => handleTimeSelect(time)}>
+          <li className='py-2 cursor-pointer text-lg border-black border-t- border-b-4'  key={time} onClick={() => handleTimeSelect(time)}>
             {time}
           </li>
         ))}

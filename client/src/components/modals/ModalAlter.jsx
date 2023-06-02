@@ -28,6 +28,7 @@ const ModalAlter = ({ isOpen, onClose }) => {
       )
       .then((response) => {
         console.log(response.data);
+        alert("Dados Alterados");
         onClose();
       })
       .catch((error) => {

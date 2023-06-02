@@ -10,9 +10,9 @@ const ServicePage = () => {
   const [selectedTime, setSelectedTime] = useState(null);
 
   const services = [
-    { id: 1, name: "Corte de cabelo" },
-    { id: 2, name: "Barba" },
-    { id: 3, name: "Pacote completo" },
+    { id: 1, name: "Corte de cabelo", value:"R$20" },
+    { id: 2, name: "Barba", value:"R$10" }, 
+    { id: 3, name: "Pacote completo", value:"R$30" },
   ];
 
   const availableDays = ["01/06/2023", "02/06/2023", "03/06/2023"];
@@ -59,14 +59,14 @@ const ServicePage = () => {
     );
   } else if (selectedService && selectedDay && selectedTime) {
     content = (
-      <div className="text-white">
-        <h2 className="text-lg font-bold mt-4">
-          Resumo do Agendamento:
-        </h2>
+      <div className="text-lg">
+        <h2 className="mb-5 mt-5 font-bold text-2xl">Resumo do Agendamento:</h2>
         <p>Serviço: {selectedService.name}</p>
         <p>Dia: {selectedDay}</p>
         <p>Horário: {selectedTime}</p>
-        <button className="p-2 mt-5 bg-white text-black"><h1 className="mx-auto">Agendar</h1></button>
+        <button className="p-2 mt-5 bg-gray-700 text-white">
+          <h1 className="mx-auto">Agendar</h1>
+        </button>
       </div>
     );
   }
@@ -76,7 +76,7 @@ const ServicePage = () => {
       <NavInsider />
       <div className="h-screen bg-gradient-to-l from-gray-800 to-gray-900">
         <div className=" ">
-          <div className="w-full max-w-md p-4 mx-auto">{content}</div>
+          <div className="w-full max-w-md p-4 mx-auto bg-gray-200 rounded-md">{content}</div>
         </div>
       </div>
     </>

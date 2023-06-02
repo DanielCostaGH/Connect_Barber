@@ -45,7 +45,7 @@ const ModalDelete = ({ isOpen, onClose }) => {
           </button>
           <button
             onClick={handleDeleteAccount}
-            className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+            className="bg-[#ff5151] hover:bg-[#972727] text-white font-bold py-2 px-4 rounded"
           >
             Apagar conta
           </button>

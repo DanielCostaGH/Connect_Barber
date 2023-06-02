@@ -30,7 +30,7 @@ const Cadastro = () => {
           <h1 className="text-white font-bold text-3xl">CRIAR CONTA</h1>
 
           <Formik
-            initialValues={{}}
+            initialValues={{ email: "", password: "" }}
             onSubmit={handleClickRegister}
             validationSchema={validationRegister}
           >

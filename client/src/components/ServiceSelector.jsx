@@ -9,16 +9,28 @@ const ServiceSelector = ({ services, onSelectService }) => {
   };
 
   return (
-    <div className='text-white'>
-      <h2 className="mb-5 mt-5">Selecione o serviço:</h2>
+    <div className=''>
+      <h2 className="mb-5 mt-5 font-bold text-2xl">Selecione o serviço:</h2>
       <ul>
         {services.map((service) => (
           <li
             key={service.id}
-            className={`py-2 cursor-pointer	 ${selectedService === service ? 'border-t border-b' : 'border-b'}`}
+            className={`py-2 cursor-pointer text-lg border-black ${selectedService === service ? 'border-t- border-b-2' : 'border-b-4'}`}
             onClick={() => handleServiceSelect(service)}
           >
-            {service.name}
+            <div className='flex justify-between'>
+
+              <div>
+              {service.name}
+              </div>
+
+              <div>
+              {service.value}
+              </div>
+
+            </div>
+            
+            
           </li>
         ))}
       </ul>

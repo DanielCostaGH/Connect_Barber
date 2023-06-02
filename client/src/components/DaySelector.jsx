@@ -9,13 +9,13 @@ const DaySelector = ({ availableDays, onSelectDay }) => {
   };
 
   return (
-    <div className='text-white'>
-      <h2>Selecione o dia:</h2>
+    <div className=''>
+      <h2 className="mb-5 mt-5 font-bold text-2xl">Selecione o dia:</h2>
       <ul>
         {availableDays.map((day) => (
           <li
             key={day}
-            className={`cursor-pointer ${selectedDay === day ? 'selected' : ''}`}
+            className={`py-2 cursor-pointer text-lg border-black ${selectedDay === day ? 'border-t- border-b-2' : 'border-b-4'}`}
             onClick={() => handleDaySelect(day)}
           >
             {day}

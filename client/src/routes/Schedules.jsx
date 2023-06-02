@@ -20,19 +20,19 @@ const Schedules = () => {
 
       <h1 className="font-bold text-2xl text-center p-5">MEUS AGENDAMENTOS</h1>
 
-      <div className="border-b-2 border-black flex">
+      <div className="border-b-4 border-black flex">
         <p className="p-3 w-2/6 text-center">Corte</p>
         <p className="p-3 w-2/6 text-center">16:00</p>
         <p className="p-3 w-2/6 text-center">30/10/2023</p>
       </div>
 
-      <div className="border-b-2 border-black flex">
+      <div className="border-b-4 border-black flex">
         <p className="p-3 w-2/6 text-center">Barba</p>
         <p className="p-3 w-2/6 text-center">16:00</p>
         <p className="p-3 w-2/6 text-center">30/10/2023</p>
       </div>
 
-      <div className="border-b-2 border-black flex">
+      <div className="border-b-4 border-black flex">
         <p className="p-3 w-2/6 text-center">Corte + Barba</p>
         <p className="p-3 w-2/6 text-center">16:00</p>
         <p className="p-3 w-2/6 text-center">30/10/2023</p>

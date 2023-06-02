@@ -45,7 +45,7 @@ const Navbar = () => {
       </div>
 
 
-      <div className="lg:flex items-center lg:w-4/6 justify-between hidden md:hidden text-xl">
+      <div className="lg:flex items-center lg:w-4/6 justify-around hidden md:hidden text-xl">
         <a
           href="/"
           className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-gray-500 mr-10"

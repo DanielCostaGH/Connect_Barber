@@ -29,7 +29,7 @@ const TimeSelector = ({ onSelect }) => {
     <div className="flex overflow-auto">
       
       {workHours.map((time) => (
-        <div className="text-center hover hover:bg-gray-400" key={time}>
+        <div className="text-center rounded hover hover:bg-[#668fff] hover:text-white " key={time}>
           <p className="p-4 cursor-pointer w-1/2" name="time" value={time} onClick={() => handleTimeSelect(time)}>
               {time}
             </p>

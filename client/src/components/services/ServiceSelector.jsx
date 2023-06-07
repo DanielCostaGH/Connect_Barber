@@ -21,9 +21,9 @@ const ServiceSelector = ({ onSelect }) => {
     <div>
       <h3 className="font-bold text-lg p-3">Selecione o serviço:</h3>
       {services.map((service) => (
-        <div className='flex justify-between hover hover:bg-gray-400' key={service.id} onClick={() => handleServiceSelect(service.name)}>
-          <p className='p-3 cursor-pointer' >{service.name}</p>
-          <p className='p-3 cursor-pointer' >{service.valor}</p>
+        <div className='flex cursor-pointer justify-between rounded hover hover:bg-[#668fff] hover:text-white' key={service.id} onClick={() => handleServiceSelect(service.name)}>
+          <p className='p-3' >{service.name}</p>
+          <p className='p-3' >{service.valor}</p>
         </div>
       ))}
     </div>

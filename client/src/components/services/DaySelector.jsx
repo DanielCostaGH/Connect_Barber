@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "../../index.css" 
 
 const DaySelector = ({ onSelect }) => {
   const [selectedDay, setSelectedDay] = useState('');
@@ -22,7 +23,7 @@ const DaySelector = ({ onSelect }) => {
       <h3 className="font-bold text-lg p-3">Selecione o dia:</h3>
       <input
         type="date"
-        className="p-4 text-lg"
+        className="cursor-pointer p-4 text-lg appearance-none bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
         onChange={handleDaySelect}
         value={selectedDay}
       />

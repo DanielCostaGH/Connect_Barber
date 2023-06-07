@@ -17,7 +17,6 @@ import LoginPage from './routes/LoginPage';
 import CriarConta from './routes/CriarConta';
 import Account from './routes/Account';
 import Schedules from './routes/Schedules';
-import ServiceBookingPage from './routes/ServicePage';
 
 // Componente de rota privada
 const PrivateRoute = ({ path, element }) => {
@@ -52,7 +51,6 @@ const router = createBrowserRouter([
       },
       createPrivateRoute('/Account', <Account />),
       createPrivateRoute('/Schedules', <Schedules />),
-      createPrivateRoute('/ServicePage', <ServiceBookingPage />),
     ],
   },
 ]);

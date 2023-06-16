@@ -1,31 +1,27 @@
-import React, { useState } from 'react';
-import "../../index.css" 
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { format } from "date-fns";
 
 const DaySelector = ({ onSelect }) => {
-  const [selectedDay, setSelectedDay] = useState('');
+  const [selectedDay, setSelectedDay] = useState(null);
 
-  const handleDaySelect = (event) => {
-    const date = new Date(event.target.value);
-    const formattedDay = formatDate(date);
-    setSelectedDay(formattedDay);
-    onSelect(formattedDay);
-  };
-
-  const formatDate = (date) => {
-    const day = String(date.getDate()).padStart(2, '0');
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const year = date.getFullYear();
-    return `${day}/${month}/${year}`;
+  const handleDayChange = (day) => {
+    setSelectedDay(day);
+    if (onSelect) {
+      const formattedDay = format(day, "MM/dd/yyyy");
+      onSelect(formattedDay);
+    }
   };
 
   return (
-    <div className='text-center'>
-      <h3 className="font-bold text-lg p-3">Selecione o dia:</h3>
-      <input
-        type="date"
-        className="cursor-pointer p-4 text-lg appearance-none bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-        onChange={handleDaySelect}
-        value={selectedDay}
+    <div className="text-center h-72">
+      <h2>Selecione um dia:</h2>
+      <DatePicker
+      className="border-2 border-gray-600"
+        selected={selectedDay}
+        onChange={handleDayChange}
+        dateFormat="dd-MM-yyyy"
       />
     </div>
   );

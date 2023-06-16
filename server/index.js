@@ -6,8 +6,8 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
 const secretKey = '123456';
-
-
+const dayjs = require("dayjs");
+const customParseFormat = require('dayjs/plugin/customParseFormat');
 
 const db = mysql.createPool({
   host: "localhost",
@@ -26,6 +26,15 @@ app.use((req, res, next) => {
   next();
 });
 
+// Função para formatar a data no formato esperado pelo MySQL
+const formatDate = (date) => {
+  return dayjs(date, "DD/MM/YYYY").format("YYYY-MM-DD");
+};
+
+// Função para formatar a hora no formato esperado pelo MySQL
+const formatTime = (time) => {
+  return dayjs(time, "HH:mm").format("HH:mm");
+};
 
 // Geração de token após a autenticação.
 function generateToken(user) {
@@ -73,8 +82,6 @@ function rotasProtegidas() {
 // Uso das rotas protegidas
 app.use("/api", rotasProtegidas());
 
-
-
 app.post("/CriarConta", (req, res) => {
   const name = req.body.name;
   const email = req.body.email;
@@ -103,7 +110,7 @@ app.post("/CriarConta", (req, res) => {
           );
         });
       } else {
-        res.send({ msg: "Usuario ja cadastrado" });
+        res.send({ msg: "Usuário já cadastrado" });
       }
     }
   );
@@ -177,11 +184,70 @@ app.delete("/ModalDelete/:id", verifyToken, (req, res) => {
   });
 });
 
+app.post("/Schedules/:id", verifyToken, (req, res) => {
+  const { selectedService, selectedDay, selectedTime } = req.body;
+  const userId = req.params.id;
 
+  // Converter a data para o formato esperado pelo MySQL
+  const formattedDay = formatDate(selectedDay);
+
+  // Extrair a hora e os minutos da hora selecionada
+  const [hour, minute] = selectedTime.split(":");
+
+  // Criar a data no formato esperado pelo MySQL
+  const formattedTime = new Date();
+  formattedTime.setHours(hour, minute, 0); // Definir a hora e os minutos
+
+  db.query(
+    "INSERT INTO schedule_tb (FK_ID_USER, SERVICE_NAME, DATE, TIME) VALUES (?, ?, ?, ?)",
+    [userId, selectedService, formattedDay, formattedTime],
+    (err) => {
+      if (err) {
+        console.error("Erro ao agendar o serviço:", err);
+        res.status(500).send("Erro ao agendar o serviço.");
+      } else {
+        console.log("Agendamento realizado com sucesso.");
+        res.status(200).send("Agendamento realizado com sucesso.");
+      }
+    }
+  );
+});
+
+
+app.get("/Agendamentos/:id", verifyToken, (req, res) => {
+  
+  const userId = req.params.id;
+
+  db.query(
+    "SELECT * FROM schedule_tb WHERE FK_ID_USER = ?",
+    [userId],
+    (err, result) => {
+      if (err) {
+        console.error("Erro ao buscar agendamentos:", err);
+        res.status(500).send("Erro ao buscar agendamentos.");
+      } else {
+        console.log("Agendamentos encontrados:", result);
+        res.status(200).json(result);
+      }
+    }
+  );
+});
+
+app.get("/services", (req, res) => {
+  db.query("SELECT id_service, SERVICE_NAME, SERVICE_VALUE FROM services_tb", (err, result) => {
+    if (err) {
+      console.error("Erro ao buscar serviços:", err);
+      res.status(500).send("Erro ao buscar serviços.");
+    } else {
+      console.log("Serviços encontrados:", result);
+      res.status(200).json(result);
+    }
+  });
+});
 
 
 
 
 app.listen(3001, () => {
-  console.log("rodando servidor");
+  console.log("Servidor rodando na porta 3001");
 });

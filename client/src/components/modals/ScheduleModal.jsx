@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import ServiceSelector from "../services/ServiceSelector";
 import DaySelector from "../services/DaySelector";
 import TimeSelector from "../services/TimeSelector";
+import axios from "axios";
+import jwt_decode from "jwt-decode";
 
 const SchedulesModal = ({ onClose }) => {
   const [step, setStep] = useState(1);
@@ -9,6 +11,13 @@ const SchedulesModal = ({ onClose }) => {
   const [selectedDay, setSelectedDay] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
   const modalRef = useRef(null);
+  const [userId, setUserId] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const decodedToken = jwt_decode(token);
+    setUserId(decodedToken.id);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -36,10 +45,6 @@ const SchedulesModal = ({ onClose }) => {
     setStep(step + 1);
   };
 
-  const handleSchedule = () => {
-    // Lógica para enviar a requisição de agendamento
-  };
-
   const handleServiceSelect = (service) => {
     setSelectedService(service);
     handleNextStep();
@@ -55,6 +60,44 @@ const SchedulesModal = ({ onClose }) => {
     handleNextStep();
   };
 
+  const handleSchedule = () => {
+    const scheduleData = {
+      selectedService,
+      selectedDay,
+      selectedTime,
+    };
+
+    if (!userId) {
+      console.error("ID do usuário não está definido.");
+      return;
+    }
+
+    if (selectedTime) {
+      scheduleData.selectedTime = selectedTime;
+    } else {
+      console.error("Hora selecionada é inválida.");
+      return;
+    }
+
+    axios
+      .post(`http://localhost:3001/Schedules/${userId}`, scheduleData, {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        onClose();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
+    alert("Agendado com sucesso!");
+    window.location.reload();
+    
+  };
+
   const renderStepContent = () => {
     switch (step) {
       case 1:
@@ -66,10 +109,16 @@ const SchedulesModal = ({ onClose }) => {
       case 4:
         return (
           <div className="text-left font-oswald text-lg">
-            
-            <p><span className="font-bold">Serviço:</span> {selectedService}</p>
-            <p><span className="font-bold">Dia:</span> {selectedDay}</p>
-            <p><span className="font-bold">Hora:</span> {selectedTime}</p>
+            <p>
+              <span className="font-bold">Serviço:</span> {selectedService}
+            </p>
+            <p>
+              <span className="font-bold">Dia:</span> {selectedDay}
+            </p>
+            <p>
+              <span className="font-bold">Hora:</span>{" "}
+              {selectedTime.split(":").slice(0, 2).join(":")}
+            </p>
           </div>
         );
       default:
@@ -85,9 +134,7 @@ const SchedulesModal = ({ onClose }) => {
           className="relative flex flex-col w-full bg-white border-0 rounded-lg shadow-lg outline-none focus:outline-none"
         >
           <div className="flex items-start justify-between p-5 border-b border-solid rounded-t border-blueGray-200">
-            <h3 className="text-3xl font-semibold">
-              Agendamento
-            </h3>
+            <h3 className="text-3xl font-semibold">Agendamento</h3>
             <button
               className="p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
               onClick={onClose}
